@@ -1,0 +1,19 @@
+model = "gpt-6.1-sol"
+model_reasoning_effort = "medium"
+
+# Optional 1M-class client configuration. Enable only after confirming
+# backend/account support for every model used by this profile. Create the
+# catalog first; use its absolute path. See README, "Model context windows".
+# model_context_window = 1_050_000
+# model_auto_compact_token_limit = 900_000
+# model_auto_compact_token_limit_scope = "total"
+# model_catalog_json = "/absolute/path/to/models-1m.json"
+
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+
+[agents]
+enabled = true
+max_concurrent_threads_per_session = 4
+default_subagent_model = "gpt-6-luna"
+default_subagent_reasoning_effort = "max"

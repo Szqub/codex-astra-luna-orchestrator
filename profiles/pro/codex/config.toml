@@ -16,15 +16,13 @@
 model = "gpt-6-astra"
 model_reasoning_effort = "medium"
 
-# Ask Codex to use the documented 1M-class context window (1,050,000 tokens)
-# for the GPT-5.6/6 models used here (Luna, Terra, Sol, Astra, Daybreak),
-# with automatic compaction kept below the working range. The catalog
-# override file keeps the larger window from being reset when Codex
-# refreshes model metadata. See README, "Model context windows".
-model_context_window = 1_050_000
-model_auto_compact_token_limit = 900_000
-model_auto_compact_token_limit_scope = "total"
-model_catalog_json = "~/.codex/models-1m.json"
+# Optional 1M-class client configuration. Enable only after confirming
+# backend/account support for every model used by this profile. Create the
+# catalog first; use its absolute path. See README, "Model context windows".
+# model_context_window = 1_050_000
+# model_auto_compact_token_limit = 900_000
+# model_auto_compact_token_limit_scope = "total"
+# model_catalog_json = "/absolute/path/to/models-1m.json"
 
 # Safe interactive defaults. Change if your workflow needs otherwise.
 approval_policy = "on-request"
@@ -39,5 +37,5 @@ max_concurrent_threads_per_session = 4
 
 # Default for any spawned subagent that does not explicitly choose a model.
 # Plan defaults: Pro uses max Luna reasoning; Plus uses medium Luna reasoning.
-default_subagent_model = "gpt-5.6-luna"
+default_subagent_model = "gpt-6-luna"
 default_subagent_reasoning_effort = "max"
